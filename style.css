@@ -1,0 +1,171 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    color: #eee;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+h1 {
+    color: #ffa500; /* Orange color like OmniBot's theme often is */
+}
+
+.controls {
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    justify-content: center; /* Center buttons if they wrap */
+    align-items: center;
+    gap: 10px;
+}
+
+.controls label {
+    margin-right: 5px;
+}
+
+.controls select, .controls button {
+    padding: 8px 12px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #5a5a5a;
+    color: #eee;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background-color: #6b6b6b;
+}
+.controls button:disabled {
+    background-color: #4a4a4a;
+    color: #888;
+    cursor: not-allowed;
+}
+
+
+.board {
+    width: 400px; /* Adjust as needed */
+    max-width: 90vw; /* Ensure board fits on smaller screens */
+    margin-bottom: 20px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+
+/* Styles for highlighting legal moves */
+.highlight-legal {
+    background-color: rgba(0, 255, 0, 0.3) !important; /* Light green with transparency */
+    /* Or use a dot/circle */
+    /* box-shadow: inset 0 0 0 2px green; */
+}
+.highlight-capture {
+    background-color: rgba(255, 0, 0, 0.3) !important; /* Light red for captures */
+}
+
+/* Add this to your style.css */
+.piece-lifted {
+    transform: translateY(-4px) scale(1.08); /* Lifts up 4px and enlarges slightly */
+    transition: transform 0.15s ease-out;   /* Smooth animation for lift/drop */
+    position: relative; /* Helps with z-index if pieces were to overlap, good practice */
+    z-index: 1000;      /* Ensures lifted piece is visually on top */
+}
+
+/* Ensure your existing highlight styles are present */
+.highlight-selected { background-color: rgba(255, 255, 0, 0.4) !important; }
+/* .highlight-legal is already defined above */
+/* .highlight-capture is already defined above */
+
+.info {
+    text-align: left;
+    width: 400px; /* Match board width or adjust */
+    max-width: 90vw; /* Ensure info box fits on smaller screens */
+    background-color: #3a3a3a;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.info p {
+    margin: 5px 0;
+    word-break: break-all; /* For long FEN strings */
+}
+
+.info span {
+    font-weight: bold;
+    color: #ffc107;
+}
+
+#pgn {
+    width: 95%;
+    background-color: #2d2d2d;
+    color: #ddd;
+    border: 1px solid #555;
+    border-radius: 3px;
+    margin-top: 5px;
+    padding: 5px;
+    resize: vertical;
+}
+
+/* Styles for AI Draw Offer Controls */
+#aiDrawOfferControls {
+    display: none; /* Initially hidden, shown by JS */
+    margin-top: 15px;
+    margin-bottom: 10px; /* Added some bottom margin */
+    padding: 12px;
+    background-color: #484848; /* Slightly different background */
+    border: 1px solid #555;
+    border-radius: 6px;
+    text-align: center;
+    width: 400px; /* Match board width or adjust */
+    max-width: 90vw; /* Ensure it fits */
+}
+
+#aiDrawOfferControls span {
+    color: #ffc107; /* OmniBot orange for the text */
+    margin-right: 15px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+#aiDrawOfferControls button {
+    padding: 7px 14px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 5px;
+}
+
+#acceptAIDrawButton {
+    background-color: #4CAF50; /* Green */
+}
+#acceptAIDrawButton:hover {
+    background-color: #45a049;
+}
+
+#declineAIDrawButton {
+    background-color: #f44336; /* Red */
+}
+#declineAIDrawButton:hover {
+    background-color: #da190b;
+}
+
+
+/* Add styles for piece drag highlight if desired */
+/* .square-55d63.highlight-white {
+  background: #a9a9a9;
+}
+.square-55d63.highlight-black {
+  background: #696969;
+} */
